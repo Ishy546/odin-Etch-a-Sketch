@@ -6,11 +6,19 @@ function createGrid(size) {
     while (container.firstChild) {//Clears the initial grid
         container.removeChild(container.firstChild);
     }
-    container.style.width = `${size * 55}px`;
+    const containerSize = 400;  // Fixed container size (400px for example)
+    const gridSize = containerSize / size;  // Each grid's size will be based on the container
+
+    // Set the width of the container (this could be dynamic if you want)
+    container.style.width = `${containerSize}px`;
     for (let i = 0; i < size * size; i++) { 
         const grid = document.createElement("div");
         grid.classList.add("grid");
-        grid.setAttribute("style", "background-color: white; border: 1px solid black; padding: 20px; border-radius: 2px;");
+        grid.style.width = `${gridSize}px`;
+        grid.style.height = `${gridSize}px`;
+        grid.style.border = "1px solid black";
+        grid.style.backgroundColor = "white";
+        grid.style.boxSizing = "border-box";
         container.appendChild(grid);
     }
     document.querySelectorAll(".grid").forEach((grid) => {
@@ -28,8 +36,8 @@ btn.addEventListener("click", () => {
     }
 });
 const reset = document.querySelector(".reset");
-document.querySelectorAll(".grid").forEach((grid) => {
-    reset.addEventListener("click", () => {
-        grid.style.backgroundColor="white";
+reset.addEventListener("click", () => {
+    document.querySelectorAll(".grid").forEach((grid) => {
+        grid.style.backgroundColor = "white";
     });
 });
