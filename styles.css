@@ -15,7 +15,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 600px;
-    height: 400px;
+    height: 600px;
 }
 header{
     display: flex;
@@ -27,5 +27,6 @@ header{
     font-size: 30px;
 }
 .btns{
+    display: flex;
     gap: 35px;
 }

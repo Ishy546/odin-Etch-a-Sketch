@@ -6,11 +6,12 @@ function createGrid(size) {
     while (container.firstChild) {//Clears the initial grid
         container.removeChild(container.firstChild);
     }
-    const containerSize = 400;  // Fixed container size (400px for example)
-    const gridSize = containerSize / size;  // Each grid's size will be based on the container
-
-    // Set the width of the container (this could be dynamic if you want)
+    const containerSize = 600; 
+    const gap = 4;  
+    const totalGap = (size - 1) * gap;  
+    const gridSize = (containerSize - totalGap) / size; 
     container.style.width = `${containerSize}px`;
+    container.style.height = `${containerSize}px`;
     for (let i = 0; i < size * size; i++) { 
         const grid = document.createElement("div");
         grid.classList.add("grid");
